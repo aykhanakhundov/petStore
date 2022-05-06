@@ -2,7 +2,6 @@ package com.petStore.api;
 
 import static com.petStore.api.Routes.*;
 import static io.restassured.RestAssured.*;
-
 import com.petStore.api.pojo.User;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -30,6 +29,7 @@ public class UserEndpoints {
                 .then().statusCode(404)
                 .extract().response();
     }
+
 
     public static Response updateUser(String username, User body) {
         baseURI = BASE_URI;
@@ -71,6 +71,5 @@ public class UserEndpoints {
                 .then().statusCode(200)
                 .extract().response();
     }
-
 
 }

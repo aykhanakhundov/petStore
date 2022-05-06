@@ -39,7 +39,6 @@ public class TestUser {
 
     @Test(priority = 3)
     public void testPutRequest() {
-
         userPojo.setFirstName(userPojo.getFirstName() + " updated");
         userPojo.setLastName(userPojo.getLastName() + " updated");
         userPojo.setEmail(userPojo.getEmail() + " updated");
@@ -57,15 +56,10 @@ public class TestUser {
     @Test(priority = 4)
     public void testDeleteRequest() {
         Response response = deleteUser(userPojo.getUserName());
-
         assertEquals(response.statusCode(), 200);
-
         Response responseAfterDelete = getUserAfterDelete(userPojo.getUserName());
-
         responseAfterDelete.prettyPrint();
-
         // System.out.println("responseAfterDelete.statusCode() = " + responseAfterDelete.statusCode());
-
         assertEquals(responseAfterDelete.statusCode(), 404);
     }
 
@@ -82,6 +76,5 @@ public class TestUser {
         response.prettyPrint();
         assertEquals(response.statusCode(), 200);
     }
-
 
 }

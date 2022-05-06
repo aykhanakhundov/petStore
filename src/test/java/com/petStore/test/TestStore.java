@@ -6,9 +6,6 @@ import com.petStore.utilities.PetStore_Utils;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import static org.testng.AssertJUnit.assertEquals;
-
-
-
 import static com.petStore.api.StoreEndpoints.*;
 
 public class TestStore {
@@ -16,21 +13,16 @@ public class TestStore {
     Order orderPojo;
 
     @Test(priority = 1)
-    public void testPostRequest(){
-
+    public void testPostRequest() {
         orderPojo = PetStore_Utils.setOrder();
-
         Response response = createOrder(orderPojo);
-
         response.prettyPrint();
-
         assertEquals(response.statusCode(), 200);
     }
 
 
-
     @Test(priority = 2)
-    public void testGetRequest(){
+    public void testGetRequest() {
         Response response = getOrder(this.orderPojo.getId());
         System.out.println("==============");
         response.prettyPrint();
@@ -39,12 +31,9 @@ public class TestStore {
 
 
     @Test(priority = 3)
-    public void testDeleteRequest(){
-
+    public void testDeleteRequest() {
         Response response = deleteOrder(this.orderPojo.getId());
-
         System.out.println("================");
-
         response.prettyPrint();
         assertEquals(response.statusCode(), 200);
         Response responseAfterDelete = getOrderAfterDelete(this.orderPojo.getId());
@@ -55,13 +44,11 @@ public class TestStore {
 
 
     @Test(priority = 4)
-    public void testGetInventory(){
+    public void testGetInventory() {
         Response response = getInventory();
         System.out.println("================");
         response.prettyPrint();
         assertEquals(response.statusCode(), 200);
     }
-
-
 
 }

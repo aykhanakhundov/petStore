@@ -21,7 +21,7 @@ public class StoreEndpoints {
     }
 
 
-    public static Response getOrder(int orderId){
+    public static Response getOrder(int orderId) {
         baseURI = BASE_URI;
         return given().accept(ContentType.JSON)
                 .pathParam("orderId", orderId)
@@ -30,7 +30,7 @@ public class StoreEndpoints {
                 .extract().response();
     }
 
-    public static Response deleteOrder(int orderId){
+    public static Response deleteOrder(int orderId) {
         baseURI = BASE_URI;
         return given().accept(ContentType.JSON)
                 .pathParam("orderId", orderId)
@@ -48,12 +48,11 @@ public class StoreEndpoints {
                 .extract().response();
     }
 
-    public static Response getInventory(){
+    public static Response getInventory() {
         baseURI = BASE_URI;
         return given().accept(ContentType.JSON)
                 .when().get(GET_INVENTORY_STORE)
                 .then().statusCode(200)
                 .extract().response();
     }
-
 }
