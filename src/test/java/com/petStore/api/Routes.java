@@ -10,4 +10,7 @@ public class Routes {
 
     public static final String GET_PUT_DELETE = "/user/{username}";
 
+
+
+
 }
